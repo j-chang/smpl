@@ -1,0 +1,80 @@
+.Sidebar
+  position: relative
+  float: left
+  width: 325px
+  margin: 0 0 30px 30px
+
+  .SidebarLink
+    background: rgba(255,255,255,.98)
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.2)
+    font-family: $font
+    font-size: 16px
+    margin: 8px 0
+    transition: background .2s ease
+    border-radius: 40px
+
+    a
+      display: block
+      height: 48px
+      line-height: 48px
+      color: $color-gray
+      padding: 0 30px
+      text-decoration: none
+      letter-spacing: 0.02em
+      transition: color .2s ease
+
+      &:hover
+        color: $color-light-blue
+
+    &-upload
+      background: $color-light-blue
+      transition: opacity .2s ease
+      color: #fff
+
+      &:hover
+        opacity: .9
+
+      a
+        color: #fff
+
+        &:hover
+          color: #fff
+
+      &-label
+        display: block
+        height: 48px
+        line-height: 48px
+        color: #fff
+        padding: 0 30px
+        text-decoration: none
+        letter-spacing: 0.02em
+        cursor: pointer
+
+    &-main
+      background: none
+      box-shadow: none
+      font-size: 20px
+      border-radius: 0
+      margin: 6px 0
+
+      a
+        color: $color-gray
+        height: 58px
+        line-height: 58px
+
+        &:hover
+          color: $color-light-blue
+          background: none
+
+      .is-active
+        color: $color-blue
+
+        &:hover
+          color: $color-blue
+
+  &>.is-active
+    a
+      color: $color-blue
+
+      &:hover
+        color: $color-blue

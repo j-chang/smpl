@@ -1,0 +1,185 @@
+.ClustersMain, .HomeMain
+  .ActiveCluster:hover .StopCluster
+    visibility: visible
+
+  .InactiveCluster:hover .StartCluster
+    visibility: visible
+
+  .StopCluster
+    visibility: hidden
+    font-size: 18px
+    height: 34px
+    width: 34px
+    line-height: 34px
+    text-align: center
+    border-radius: 50%
+    color: #ddd
+
+    &:hover
+      background: $color-light-gray
+      opacity: .6
+      color: #F47677
+
+    &-stopping.StopCluster
+      visibility: visible
+      background: none
+      color: #F47677
+      opacity: 1
+
+  .StartCluster
+    visibility: hidden
+    font-size: 16px
+    height: 34px
+    width: 34px
+    line-height: 34px
+    text-align: center
+    color: #ddd
+
+    &:hover
+      color: $color-light-blue
+
+  .StatusIcon
+    height: 16px
+    width: 16px
+    border-radius: 50%
+    background: #ddd
+    margin-right: 30px
+
+  .is-inactive
+    background: #ddd
+
+  .is-starting
+    animation: pulse-in 1s ease-in infinite alternate
+
+    @keyframes pulse-in {
+      0% {
+        background: #ddd
+      }
+      100% {
+        background: #00D096
+        box-shadow: 0 0 22px 2px #86EBB2
+      }
+    }
+
+  .is-live
+    background: #00D096
+
+  .is-working
+    animation: pulse-working 1.2s cubic-bezier(.57,.21,.69,1.25) infinite alternate
+
+    @keyframes pulse-working {
+      0% {
+        background: #ddd
+      }
+      100% {
+        background: $color-light-blue
+      }
+    }
+
+  .is-stopping
+    animation: pulse-out 1s ease-in infinite alternate
+
+    @keyframes pulse-out {
+      0% {
+        background: #F47677
+        box-shadow: 0 0 22px 0px #FDA3A2
+      }
+      100% {
+        background: #ddd
+      }
+    }
+
+  .ClusterName
+    width: 40%
+    overflow: hidden
+    white-space: nowrap
+    text-overflow: ellipsis
+    margin-right: 30px
+
+    &:hover
+      text-overflow: clip
+
+  .ClusterNodes
+    padding: 0 6px
+    height: 100%
+    width: 90px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    position: relative
+
+    &:hover
+      background: aliceblue
+
+      & > .tooltip
+        visibility: visible
+
+    .tooltip
+      visibility: hidden
+      width: 120px
+      background-color: $color-light-blue //rgb(120, 154, 233)
+      color: #fff
+      text-align: center
+      border-radius: 3px
+      padding: 5px 0
+      position: absolute
+      right: calc(100% + 5px)
+      height: 24px
+      line-height: 24px
+      font-size: 12px
+
+      &:after
+        content: ''
+        position: absolute
+        top: 50%
+        left: 100%
+        margin-top: -5px
+        border-width: 5px
+        border-style: solid
+        border-color: transparent transparent transparent $color-light-blue
+
+    .NodeRow
+      display: flex
+      margin: 3px 0
+
+      .on-demand
+        height: 8px
+        width: 8px
+        margin: 0 3px
+        background: #00D096
+        border-radius: 50%
+
+      .spot
+        height: 8px
+        width: 8px
+        margin: 0 3px
+        background: #ddd
+        border-radius: 50%
+
+  .ClusterNotebook
+    background: $color-light-blue
+    color: #fff
+    border-radius: 40px
+    height: 28px
+    line-height: 28px
+    font-size: 12px
+    padding: 0 12px
+    margin: 0 auto
+    text-align: center
+    text-decoration: none
+    width: 20%
+    overflow: hidden
+    white-space: nowrap
+    text-overflow: ellipsis
+
+    &-inactive
+      background: $color-light-gray
+      color: $color-gray
+
+    &:hover
+      opacity: .6
+
+    &-attach
+      background: $color-light-gray
+      color: $color-gray
