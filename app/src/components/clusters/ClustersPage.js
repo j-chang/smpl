@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import ClustersSidebar from './ClustersSidebar'
 import ClustersMain from './ClustersMain'
+import NewCluster from './NewCluster'
 
 class ClustersPage extends Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class ClustersPage extends Component {
       <div id='clusters-page'>
         <ClustersSidebar />
         {sub === '' && <ClustersMain />}
+        {sub === 'new-cluster' && <NewCluster />}
       </div>
     )
   }

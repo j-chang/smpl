@@ -7,6 +7,7 @@ import NotebooksPage from './notebooks/NotebooksPage'
 import ClustersPage from './clusters/ClustersPage'
 import AccountPage from './account/AccountPage'
 import HomePage from './home/HomePage'
+import LandingPage from './auth/LandingPage'
 
 class App extends Component {
   constructor(props) {
@@ -20,6 +21,13 @@ class App extends Component {
 
   render() {
     const { nav } = this.props
+    let loggedIn = true
+    loggedIn = false
+
+    if (!loggedIn) {
+      return <LandingPage />
+    }
+
     return (
       <div id='app'>
         <Header />

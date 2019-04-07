@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import NotebooksSidebar from './NotebooksSidebar'
 import NotebooksMain from './NotebooksMain'
+import NewNotebook from './NewNotebook'
 
 class NotebooksPage extends Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class NotebooksPage extends Component {
       <div id='notebooks-page'>
         <NotebooksSidebar />
         {sub === '' && <NotebooksMain />}
+        {sub === 'new-notebook' && <NewNotebook />}
       </div>
     )
   }

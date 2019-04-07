@@ -1,0 +1,104 @@
+#login-page, #signup-page
+  background: #f4f4f4
+  height: 100vh
+
+  .Header
+    background: none
+
+.LoginPage, .SignupPage
+  width: 600px
+  margin: 0 auto
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.25)
+  padding-top: 50px
+  padding-bottom: 40px
+  align-items: center
+  display: flex
+  flex-direction: column
+  background: rgba(255,255,255,.98)
+
+  &-title
+    font-family: $font
+    font-size: 32px
+    font-weight: 300
+    color: $color-gray
+    letter-spacing: 0.02em
+    text-align: center
+    margin-top: 20px
+    margin-bottom: 60px
+
+  &-form
+    width: 340px
+
+    &-label
+        height: 20px
+        line-height: 20px
+        color: $color-gray
+        font-family: $font
+        font-size: 14px
+        font-weight: 500
+        text-transform: uppercase
+        letter-spacing: 0.02em
+        margin: 6px 0
+        padding: 0 12px
+        display: flex
+        align-items: center
+
+        &:not(:first-of-type)
+          margin-top: 30px
+
+      &-input
+        outline: none
+        height: 44px
+        width: 304px
+        padding: 0 16px
+        font-size: 16px
+        border-radius: 4px
+        border: 2px solid #b5c5ea
+
+        &::placeholder
+          color: #ccc
+
+        &:focus
+          border: 2px solid $color-light-blue
+
+    .LoginButton, .SignupButton
+      height: 48px
+      line-height: 48px
+      text-align: center
+      width: 240px
+      color: #fff
+      background: $color-light-blue
+      box-shadow: 1px 1px 1px rgba(0,0,0,0.2)
+      font-family: $font
+      font-size: 16px
+      letter-spacing: 0.02em
+      border-radius: 40px
+      margin: 0 auto
+      margin-top: 50px
+      cursor: pointer
+      outline: none
+      transition: opacity .2s ease
+
+      input
+        display: none
+
+      &:hover, &:focus
+        opacity: .8
+
+
+  &-forgot-password, &-login
+    font-family: $font
+    font-size: 12px
+    letter-spacing: 0.02em
+    color: $color-gray
+    margin-top: 20px
+
+  &-signup
+    font-family: $font
+    font-size: 12px
+    letter-spacing: 0.02em
+    color: $color-gray
+    margin-top: 60px
+
+    a
+      color: $color-light-blue

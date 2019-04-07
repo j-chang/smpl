@@ -14,8 +14,9 @@ class ConnectDatabase extends Component {
   render() {
     return (
       <div className='ConnectDatabase Content-with-sidebar'>
+        <div className='ContentName'>Connect Database</div>
         <div className='Section'>
-          <div className='Section-name'>Connect S3 Bucket</div>
+          <div className='Section-name'>Amazon S3 Bucket</div>
 
           <div className='ConnectDatabase-copy'>
             Amazon S3 Buckets are accessible in your notebooks
