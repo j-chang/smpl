@@ -1,22 +1,53 @@
 .DataMain
   .Files
-    margin: 0 30px
-    margin-top: 24px
+    margin: 36px 60px 0 60px
+
+    .UploadButton
+      height: 42px
+      line-height: 42px
+      text-align: center
+      width: 200px
+      color: #fff
+      background: $color-light-blue
+      box-shadow: 1px 1px 1px rgba(0,0,0,0.2)
+      font-family: $font
+      font-size: 16px
+      letter-spacing: 0.02em
+      border-radius: 22px
+      margin: 30px
+      cursor: pointer
+      outline: none
+      transition: background .2s ease
+
+      &:hover, &:focus
+        opacity: .8
+        background: $color-blue
+
+      &-label
+        display: inline-block
+        width: 100%
+        border-radius: inherit
+        cursor: pointer
 
     .FilesList
       font-family: $font
       font-size: 16px
       letter-spacing: 0.02em
+      box-shadow: 0 1px 6px #b5c5ea
+      box-shadow: 0 1px 6px rgba(0,0,0,0.1)
+      background: rgba(255,255,255,.98)
+      border-radius: 22px
+      overflow: hidden
 
       &-head
         display: flex
         font-size: 14px
         font-weight: 500
-        color: $color-gray
         text-transform: uppercase
-        height: 34px
-        line-height: 34px
-        border-bottom: 2px solid $color-light-blue
+        height: 36px
+        line-height: 36px
+        border-bottom: 2px solid #ddd
+        border-image: linear-gradient(to right, $color-light-blue, rgba(221,221,221,0.8)) 1
 
         &-load
           width: 34px
@@ -49,21 +80,23 @@
         color: $color-gray
         height: 58px
         line-height: 58px
-        border-bottom: 1px solid aliceblue
-        background: rgba(255,255,255,.98)
 
         &:hover
-          background: rgba(255,255,255,.80)
+          background: #f9f9f9
+
+          &, .DataFile-actions
+            visibility: visible
 
         &-load
           text-align: center
-          color: $color-light-blue
+          color: #ccc
           cursor: pointer
           width: 34px
           margin-left: 30px
 
           &:hover
-            opacity: .6
+            color: #ddd
+            opacity: .8
 
         &-name
           width: 50%
@@ -82,19 +115,6 @@
           align-items: center
           justify-content: center
 
-          &-bar
-              width: 90%
-              height: 3px
-              background: $color-light-gray
-              border-radius: 2px
-
-              &-status
-                height: 3px
-                width: 5%
-                width: 70%
-                background: $color-light-blue
-                border-radius: 2px
-
         &-size
           width: 10%
           font-size: 14px
@@ -108,6 +128,7 @@
           padding-left: 12px
 
         &-actions
+          visibility: hidden
           width: 34px
           margin-right: 30px
 
@@ -117,12 +138,9 @@
             width: 34px
             line-height: 34px
             text-align: center
-            border-radius: 50%
-            color: #bbb
+            color: #ccc
             margin: 0 auto
+            cursor: pointer
 
             &:hover
-              cursor: pointer
-              background: $color-light-gray
-              opacity: .6
-              color: #F47677
+              color: #ddd

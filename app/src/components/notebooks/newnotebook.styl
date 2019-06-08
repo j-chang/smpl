@@ -1,0 +1,39 @@
+.NewNotebook
+  .CodeMirror
+    margin: 36px 60px
+    height: 200px
+    border-radius: 6px
+    padding-top: 12px
+    padding-bottom: 12px
+    font-size: 14px
+    opacity: .94
+    animation: fade-in .2s ease-in
+
+    @keyframes fade-in {
+        0% {
+          opacity: 0
+        }
+        100% {
+          opacity: 1
+        }
+      }
+
+    &-linenumbers
+      padding-right: 12px
+
+    &-focused
+      opacity: 1
+      box-shadow: 0 1px 6px rgba(0,0,0,0.8)
+
+  .AddCommand
+    color: $color-gray
+    font-family: $font
+    font-size: 18px
+    letter-spacing: 0.02em
+    margin: 36px 0 60px 90px
+    padding: 0 16px
+    width: max-content
+    cursor: pointer
+
+    &:hover
+      color: $color-light-blue

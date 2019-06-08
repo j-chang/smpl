@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { changeLocation } from '../../actions/navActions'
 
 class AccountSidebar extends Component {
@@ -19,11 +20,21 @@ class AccountSidebar extends Component {
     const { main, sub } = this.props.nav
     return (
       <ul id='sidebar-account' className='Sidebar'>
-        <li className='SidebarLink SidebarLink-main' onClick={() => this.changeLocation('account')}>
-          <a className={main === 'account' && sub === '' ? 'is-active' : ''} href='#'>Account Settings</a>
-        </li>
+        <Link to='/' className='LogoContainer' onClick={() => this.changeLocation('home')}>
+          <img id='logo' src='./assets/brand.svg' alt='smpldata'/>
+        </Link>
 
-        <li className={'SidebarLink' + (sub === 'aws-account' ? ' is-active' : '')} onClick={() => this.changeLocation('account', 'aws-account')}><a href='#'>AWS Account</a></li>
+        <li className='SidebarLink' onClick={() => this.changeLocation('data')}><Link to='/data'>Data</Link></li>
+        <li className='SidebarLink' onClick={() => this.changeLocation('notebooks')}><Link to='/notebooks'>Notebooks</Link></li>
+        <li className='SidebarLink' onClick={() => this.changeLocation('clusters')}><Link to='/clusters'>Clusters</Link></li>
+
+        {false &&
+          <div className='Sidebar-sub'>
+            <li className={'SidebarLink' + (sub === 'aws-account' ? ' is-active' : '')} onClick={() => this.changeLocation('account', 'aws-account')}><a href='#'>AWS Account</a></li>
+          </div>
+        }
+
+        <li className='SidebarLink SidebarLink-account is-active' onClick={() => this.changeLocation('account')}><Link to='/clusters'>Account</Link></li>
       </ul>
     )
   }

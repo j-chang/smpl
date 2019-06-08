@@ -1,13 +1,23 @@
 .LandingPage
   &-header
+    display: flex
     height: 100px
-    box-shadow: none
     align-items: center
+    z-index: 999
 
     .LogoContainer
       height: 32px
       margin-left: 80px
       cursor: pointer
+
+    #logo
+      height: 100%
+      max-width: 100%
+      box-sizing: content-box
+      transition: opacity .2s ease
+
+      &:hover
+        opacity: .6
 
     &-login
       font-family: $font
@@ -47,10 +57,12 @@
         box-shadow: 1px 1px 1px rgba(0,0,0,0.2)
         border-radius: 40px
         transition: opacity .2s ease
+        transition: background .2s ease
         outline: none
 
         &:hover, &:focus
           opacity: .8
+          background: $color-blue
 
   &-content
     width: 40%
@@ -63,13 +75,13 @@
     h1
       font-family: $font
       font-size: 5.5em
-      color: $color-gray
       letter-spacing: 0.02em
 
     &-border
       height: 7px
       width: 33%
       background: $color-blue
+      background-image: linear-gradient(to right, rgba(9,53,155, 0), rgba(9,53,155, 1), rgba(9,53,155, 0))
       border-radius: 7px
       margin-top: 40px
       margin-bottom: 60px
@@ -101,7 +113,9 @@
         box-shadow: 1px 1px 1px rgba(0,0,0,0.2)
         border-radius: 40px
         transition: opacity .2s ease
+        transition: background .2s ease
         outline: none
 
         &:hover, &:focus
           opacity: .8
+          background: $color-blue

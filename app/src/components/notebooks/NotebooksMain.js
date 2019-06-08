@@ -13,11 +13,7 @@ class NotebooksMain extends Component {
   renderNotebook(notebook) {
     return <li className='List-item Notebook' key={notebook.id}>
       <span className='NotebookName'>{notebook.name}</span>
-
-      {notebook.cluster ? <div className='Notebook-cluster xis-working'><div className='Notebook-cluster-icon' /><span>Cluster1</span></div> :
-        <div className='Notebook-cluster Notebook-cluster-attach'><span>Not Attached</span></div>
-      }
-
+      <div style={{margin: 'auto'}}></div>
       <div className='NotebookAction NotebookAction-copy'><i className='far fa-copy'/></div>
       <div className='NotebookAction NotebookAction-delete'><i className='far fa-trash-alt'/></div>
 
@@ -27,17 +23,12 @@ class NotebooksMain extends Component {
   render() {
     let notebooks = [{
       id: 1,
-      name: 'Quickstart Guide to Smpldata',
+      name: 'Quickstart Guide',
       cluster: 1
     },
     {
       id: 2,
       name: 'Create a Simple Cluster',
-      cluster: null
-    },
-    {
-      id: 3,
-      name: 'Untitled Notebook - 10.28.19 (Quarterly Budgeting Report)',
       cluster: null
     }]
 
@@ -46,7 +37,10 @@ class NotebooksMain extends Component {
     return (
       <div className='NotebooksMain Content-with-sidebar'>
         <div className='ContentName'>Notebooks</div>
+        <div className='ContentName-bottom-border'></div>
+
         <ul className='Notebooks List'>
+          <div className='Notebooks-filter'>Filter by: Date</div>
           {notebooks.length ? notebooks.map(this.renderNotebook) :
             <div className='EmptyList'>No Notebooks</div>
           }

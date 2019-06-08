@@ -1,8 +1,9 @@
-import { AUTHENTICATING_USER, USER_AUTHENTICATED } from '../actions/authActions'
+import { AUTHENTICATING_USER, AUTHENTICATION_SUCCESS, AUTHENTICATION_FAILURE, SIGN_OUT } from '../actions/authActions'
 
 const initialState = {
   user: null,
-  isAuthenticating: false
+  isAuthenticating: false,
+  error: null
 }
 
 const authReducer = (state = initialState, action) => {
@@ -10,13 +11,29 @@ const authReducer = (state = initialState, action) => {
     case AUTHENTICATING_USER:
       return {
         ...state,
-        isAuthenticating: true
+        isAuthenticating: true,
+        error: null
       }
-    case USER_AUTHENTICATED:
+    case AUTHENTICATION_SUCCESS:
       return {
         ...state,
         user: action.user,
-        isAuthenticating: false
+        isAuthenticating: false,
+        error: null
+      }
+    case AUTHENTICATION_FAILURE:
+      return {
+        ...state,
+        user: null,
+        isAuthenticating: false,
+        error: action.error
+      }
+    case SIGN_OUT:
+      return {
+        ...state,
+        user: null,
+        isAuthenticating: false,
+        error: null
       }
     default:
       return state

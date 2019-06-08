@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { authenticateUser } from '../actions/authActions'
-import Header from './header/Header'
+import { getAuthToken } from '../actions/authActions'
 import DataPage from './data/DataPage'
 import NotebooksPage from './notebooks/NotebooksPage'
 import ClustersPage from './clusters/ClustersPage'
@@ -16,21 +15,18 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // this.props.dispatch(authenticateUser())
   }
 
   render() {
-    const { nav } = this.props
-    let loggedIn = true
-    loggedIn = false
+    const { nav, auth } = this.props
+    const hasToken = getAuthToken()
 
-    if (!loggedIn) {
+    if (!auth.user && !hasToken) {
       return <LandingPage />
     }
 
     return (
       <div id='app'>
-        <Header />
         <div id='wrap'>
           <div id='wrap-inner'>
             {nav.main === 'home' && <HomePage />}

@@ -8,20 +8,16 @@ class ConnectDatabase extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props)
   }
 
   render() {
     return (
       <div className='ConnectDatabase Content-with-sidebar'>
         <div className='ContentName'>Connect Database</div>
-        <div className='Section'>
-          <div className='Section-name'>Amazon S3 Bucket</div>
+        <div className='ContentName-bottom-border'></div>
 
-          <div className='ConnectDatabase-copy'>
-            Amazon S3 Buckets are accessible in your notebooks
-          </div>
-
+        <div className='EmptyList' style={{margin: '36px 60px'}}>
+          Not Available in Demo Mode
         </div>
       </div>
     )

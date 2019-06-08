@@ -72,6 +72,7 @@ class NewCluster extends Component {
     return (
       <div className='NewCluster Content-with-sidebar'>
         <div className='ContentName'>New Cluster</div>
+        <div className='ContentName-bottom-border'></div>
         <div className='ClusterPreview'>{this.renderClusterPreview(worker)}</div>
 
         <div className='NewCluster-form'>

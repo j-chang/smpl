@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Redirect } from 'react-router-dom'
+import { authenticateUser } from '../../actions/authActions'
 
 class LoginPage extends Component {
   constructor(props) {
@@ -18,8 +19,9 @@ class LoginPage extends Component {
   }
 
   onLoginSubmit(e) {
-    console.log('login')
     e.preventDefault()
+    if (this.state.email === '' || this.state.password === '') return
+    this.props.dispatch(authenticateUser(this.state.email, this.state.password))
   }
 
   handleKeyDown(e) {
@@ -28,6 +30,12 @@ class LoginPage extends Component {
   }
 
   render() {
+    const { auth } = this.props
+
+    if (auth.user) {
+      return <Redirect to='/' />
+    }
+
     return (
       <div id='login-page'>
 
@@ -40,12 +48,16 @@ class LoginPage extends Component {
         <div className='LoginPage-title'>Log in</div>
 
         <div className='LoginPage'>
+          {this.props.auth.error &&
+            <div className='LoginPage-error'>Invalid email or password</div>
+          }
+
           <form className='LoginPage-form' onSubmit={this.onLoginSubmit}>
             <div className='LoginPage-form-label'>Email</div>
             <input
               className='LoginPage-form-input'
               autoFocus
-              // placeholder='Email'
+              placeholder='Email'
               type='email'
               value={this.state.email}
               onChange={(e) => this.setState({email: e.target.value})}
@@ -54,7 +66,7 @@ class LoginPage extends Component {
             <div className='LoginPage-form-label'>Password</div>
             <input
               className='LoginPage-form-input'
-              // placeholder='Password'
+              placeholder='Password'
               type='password'
               value={this.state.password}
               onChange={(e) => this.setState({password: e.target.value})}

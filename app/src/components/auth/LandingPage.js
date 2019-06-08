@@ -14,7 +14,7 @@ class LandingPage extends Component {
   render() {
     const { sub } = this.props.nav
     return (
-      <div id='landing-page'>
+      <div id='landing-page' style={{background: 'url(./assets/landing.png) no-repeat right bottom', backgroundSize: '40%'}}>
 
         <ul className='Header LandingPage-header'>
           <div className='LogoContainer'>
@@ -32,11 +32,11 @@ class LandingPage extends Component {
           <h1>make big data smpl</h1>
           <div className='LandingPage-content-border'></div>
           <div className='LandingPage-content-text'>
-            Easily run Python, R, Scala commands and SQL queries in the cloud. Simply upload your data or connect to a database. Allocate cloud resources with a click of a button.
+            Easily run Python commands and SQL queries through your browser. Simply upload your data or connect to a database. Allocate cloud resources with a click of a button.
           </div>
 
           <div className='LandingPage-content-signup'>
-            <NavLink to='/signup'>Sign Up for Free</NavLink>
+            <NavLink to='/signup'>Sign Up for Beta</NavLink>
           </div>
         </div>
 

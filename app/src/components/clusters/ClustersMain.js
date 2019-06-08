@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { changeLocation } from '../../actions/navActions'
 
 class ClustersMain extends Component {
   constructor(props) {
@@ -12,10 +10,6 @@ class ClustersMain extends Component {
   }
 
   componentDidMount() {
-  }
-
-  changeLocation(main='clusters', sub='') {
-    this.props.dispatch(changeLocation(main, sub))
   }
 
   renderActiveCluster(cluster) {
@@ -43,10 +37,8 @@ class ClustersMain extends Component {
         <div className='tooltip'>244 GB 32 Cores</div>
       </div>
 
-      {cluster.notebook ? <div className='ClusterNotebook'><span>Untitled Notebook</span></div> :
-        <Link to='/notebooks' className='ClusterNotebook ClusterNotebook-attach' onClick={() => this.changeLocation('notebooks')}>
-          <span>Attach Notebook</span>
-        </Link>
+      {cluster.notebook ? <div className='ClusterNotebook'><span>Quickstart Guide</span></div> :
+        <div className='ClusterNotebook ClusterNotebook-attach'><span>Attach Notebook</span></div>
       }
 
       <div className={`StopCluster ${cluster.status === 'stopping' ? 'StopCluster-stopping' : ''}`}>
@@ -70,7 +62,7 @@ class ClustersMain extends Component {
         <div className='tooltip'>62 GB 8 Cores</div>
       </div>
 
-      <div className='ClusterNotebook ClusterNotebook-inactive'><span>Notebook1</span></div>
+      <div className='ClusterNotebook ClusterNotebook-inactive'><span>Attach Notebook</span></div>
 
       <div className='StartCluster'>
         <i className='fas fa-play'/>
@@ -81,29 +73,19 @@ class ClustersMain extends Component {
   render() {
     let activeClusters = [{
       id: 1,
-      name: 'Cluster1',
+      name: 'Simple Cluster',
       notebook: {},
       status: 'live' // starting, live, working, stopping, inactive
-      // status: 'working'
-    },
-    {
-      id: 2,
-      name: 'Untitled Cluster - 10.28.19 (Quarterly Budgeting Report)',
-      notebook: null,
-      status: 'starting'
-      // status: 'stopping'
-      // status: 'working'
-      // status: 'live'
     }]
 
     let inactiveClusters = [{
-      id: 3,
-      name: 'Simple Cluster',
+      id: 2,
+      name: 'Demo Cluster',
       status: 'inactive'
     },
     {
-      id: 4,
-      name: 'Cluster4',
+      id: 3,
+      name: 'Inactive Cluster',
       status: 'inactive'
     }]
 
@@ -113,6 +95,7 @@ class ClustersMain extends Component {
     return (
       <div className='ClustersMain Content-with-sidebar'>
         <div className='ContentName'>Clusters</div>
+        <div className='ContentName-bottom-border'></div>
 
         {!!activeClusters.length &&
           <ul className='ActiveClusters List'>

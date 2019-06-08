@@ -43,14 +43,14 @@ class HomeMain extends Component {
         <div className='tooltip'>244 GB 32 Cores</div>
       </div>
 
-      {cluster.notebook ? <div className='ClusterNotebook'><span>Untitled Notebook</span></div> :
+      {cluster.notebook ? <div className='ClusterNotebook'><span>{cluster.notebook}</span></div> :
         <Link to='/notebooks' className='ClusterNotebook ClusterNotebook-attach' onClick={() => this.changeLocation('notebooks')}>
           <span>Attach Notebook</span>
         </Link>
       }
 
       <div className={`StopCluster ${cluster.status === 'stopping' ? 'StopCluster-stopping' : ''}`}>
-        <i className='fas fa-pause'/>
+        <i className='fas fa-ban'/>
       </div>
     </li>
   }
@@ -88,18 +88,8 @@ class HomeMain extends Component {
     let activeClusters = [{
       id: 1,
       name: 'Simple Cluster',
-      notebook: {},
-      // status: 'live' // starting, live, working, stopping, inactive
-      status: 'working'
-    },
-    {
-      id: 2,
-      name: 'Untitled Cluster - 10.28.19',
-      notebook: null,
-      // status: 'starting'
-      // status: 'stopping'
-      // status: 'working'
-      status: 'live'
+      notebook: 'Quickstart Guide',
+      status: 'live' // starting, live, working, stopping, inactive
     }]
 
     let inactiveClusters = [{
@@ -108,12 +98,12 @@ class HomeMain extends Component {
       status: 'inactive'
     }]
 
-    activeClusters = []
+    // activeClusters = []
     // inactiveClusters = []
 
     let notebooks = [{
       id: 1,
-      name: 'Quickstart Guide to Smpldata',
+      name: 'Quickstart Guide',
       cluster: 1
     },
     {
@@ -127,6 +117,7 @@ class HomeMain extends Component {
     return (
       <div className='HomeMain Content-with-sidebar'>
         <div className='ContentName'>Dashboard</div>
+        <div className='ContentName-bottom-border'></div>
 
         {activeClusters.length ?
           <ul className='ActiveClusters List'>

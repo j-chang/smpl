@@ -20,13 +20,15 @@ class HomeSidebar extends Component {
     const { main, sub } = this.props.nav
     return (
       <ul id='sidebar-home' className='Sidebar'>
-        <li className='SidebarLink SidebarLink-main' onClick={() => this.changeLocation('home')}>
-          <a className={main === 'home' && sub === '' ? 'is-active' : ''} href='#'>Home</a>
-        </li>
+        <Link to='/' className='LogoContainer' onClick={() => this.changeLocation('home')}>
+          <img id='logo' src='./assets/brand.svg' alt='smpldata'/>
+        </Link>
 
-        <li className='SidebarLink SidebarLink-upload' onClick={() => this.changeLocation('data')}><Link to='/data'>Upload File</Link></li>
-        <li className='SidebarLink' onClick={() => this.changeLocation('notebooks', 'new-notebook')}><Link to='/notebooks'>New Notebook</Link></li>
-        <li className='SidebarLink' onClick={() => this.changeLocation('clusters', 'new-cluster')}><Link to='/clusters'>New Cluster</Link></li>
+        <li className='SidebarLink' onClick={() => this.changeLocation('data')}><Link to='/data'>Data</Link></li>
+        <li className='SidebarLink' onClick={() => this.changeLocation('notebooks')}><Link to='/notebooks'>Notebooks</Link></li>
+        <li className='SidebarLink' onClick={() => this.changeLocation('clusters')}><Link to='/clusters'>Clusters</Link></li>
+
+        <li className='SidebarLink SidebarLink-account' onClick={() => this.changeLocation('account')}><Link to='/clusters'>Account</Link></li>
       </ul>
     )
   }
