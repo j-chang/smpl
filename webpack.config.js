@@ -6,7 +6,6 @@ module.exports = {
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'app/dist')
-    // path: path.resolve(__dirname, 'api/priv/static')
   },
 
   module: {

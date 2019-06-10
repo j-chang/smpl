@@ -42,7 +42,7 @@ export const authenticateUser = (email, password) => {
 
   return (dispatch) => {
     dispatch(authenticatingUser())
-    return fetch('http://localhost:4000/sessions/login', config)
+    return fetch('http://localhost:4000/api/v1/sessions/login', config)
       .then(response => response.ok ? response : Promise.reject(response.statusText))
       .then(response => response.json())
       .then((responseJSON) => dispatch(authenticationSuccess(responseJSON.data)))
@@ -66,7 +66,7 @@ export const signOutUser = () => {
 
   return (dispatch) => {
     dispatch(signOut())
-    return fetch('http://localhost:4000/sessions/sign_out', config)
+    return fetch('http://localhost:4000/api/v1/sessions/sign_out', config)
       .then(response => response.ok ? response : Promise.reject(response.statusText))
       .catch(error => console.log(error))
   }

@@ -37,7 +37,7 @@ class SignupPage extends Component {
       })
     }
 
-    fetch('http://localhost:4000/accounts/new', config)
+    fetch('http://localhost:4000/api/v1/accounts/new', config)
       .then(response => response.ok ? response : Promise.reject(response.statusText))
       .then(response => response.json())
       .then((responseJSON) => this.setState({createdUser: responseJSON.data}))
